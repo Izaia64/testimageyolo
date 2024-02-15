@@ -13,34 +13,27 @@ license: apache-2.0
 
 ## II. Display the application in production  
 
-### 1/ Download the project directory in your computer 
+### 1/ Test the app
 
-gh repo clone Izaia64/Mountainimages
+### Download
 
-Create your .env file 
+`gh repo clone Izaia64/Mountainimages`
 
-`#GCP Project`
+### Create your .env file 
 
-`GCP_PROJECT_WAGON=my_project_gcp`
+<div style="border: 1px solid #ccc; padding: 10px; background-color: #f0f0f0;"># GCP Project <br>
+GCP_PROJECT_WAGON=wagon-public-datasets <br>
+# Your personal GCP project for this bootcamp <br>
+GCP_PROJECT=wagon-bootcamp-404319 <br>
+GCP_PROJECT_ID=wagon-bootcamp-404319 <br>
+GCP_REGION=europe-west1 <br>
+DOCKER_REPO_NAME=imageyolo <br>
+DOCKER_IMAGE_NAME=dockerimagecl1 <br>
+</div>
 
-`#Your personal GCP project for this bootcamp`
+### Launch local application
 
-`GCP_PROJECT=my_project_gcp`
-`GCP_PROJECT_ID=my_project_gcp`
-`GCP_REGION=europe-west1`
-`DOCKER_REPO_NAME=my_docker_repo_name`
-
-`DOCKER_IMAGE_NAME=my_image_name`
-
-1/ Test locally the API
-
-`pip install requirements/txt .`
-
-`pip install requirements_api/txt .` 
-
-`cd fast_api` 
-
-`uvicorn api:app --host 0.0.0.0 --port 8080`
+<div style="border: 1px solid #ccc; padding: 10px; background-color: #f0f0f0;"> pip install requirements/txt . <br> pip install requirements_api/txt .  <br> cd fast_api <br> uvicorn api:app --host 0.0.0.0 --port 8080 </div>
 
 ### 2/ Build your docker image 
 
@@ -50,11 +43,11 @@ Create your .env file
 
  `docker run -p 8090:8080 -it my_image sh`
 
-### 4/ Create your image ready for Google Artefact registery 
+### 4/ Build docker image ready for Google Artefact registery 
 
 `docker build -t $GCP_REGION-docker.pkg.dev/$GCP_PROJECT_ID/$DOCKER_REPO_NAME/$DOCKER_IMAGE_NAME:0.1 .`
 
-### 5/ Put your image to artefact registery 
+### 5/ Push your image to artefact registery 
 `docker push $GCP_REGION-docker.pkg.dev/$GCP_PROJECT_ID/$DOCKER_REPO_NAME/$DOCKER_IMAGE_NAME:0.1`
 
 ### 6/ Deploy your image on cloud run 
